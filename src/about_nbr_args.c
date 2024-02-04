@@ -6,13 +6,13 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 12:40:38 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/03 13:21:30 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/04 09:37:19 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	ft_validates_nbr_args(int argc)
+void	ft_valid_nbr_args(int argc)
 {
 	if (argc > 5)
 	{
