@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 15:11:11 by rbutzke           #+#    #+#             */
-/*   Updated: 2023/11/03 15:07:47 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/05 17:34:51 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_s1 = ft_strlen(s1);
 	size_s2 = ft_strlen(s2);
 	size = size_s1 + size_s2 +1;
-	new_str = malloc (sizeof(char) * size);
-	if (new_str == NULL)
+	new_str = ft_calloc (sizeof(char), size);
+	if (!new_str)
 		return (NULL);
 	if (size < 2)
-		new_str[0] = '\0';
+		return (new_str);
 	else
 	{
 		ft_memcpy(new_str, s1, size_s1);

@@ -3,49 +3,66 @@
 /*                                                        :::      ::::::::   */
 /*   about_command.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 13:20:08 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/04 10:22:12 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/05 18:04:05 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-static	void ft_init_pointers_cmd(t_var *var, int argc)
+static void ft_cpy_array_to_matrix(char **matrix, char *str, int size_matrix)
 {
-	var->nbr_cmd = argc -3;
-	var->cmd_end_position = argc -2;
-	var->cmd_start_position = 2;
-	var->arg->cmd = ft_calloc(sizeof(char **), var->nbr_cmd +1);
-	var->arg->path_cmd_full = ft_calloc(sizeof(char), var->nbr_cmd +1);
-	var->arg->cmd_full = ft_calloc(sizeof(char *), var->nbr_cmd +1);
-	if (!var->arg->cmd_full || !var->arg->cmd || !var->arg->path_cmd_full)
-	{
-		ft_printf("memory allocation error");
-		exit(EXIT_FAILURE);
-	}
+    int i;
+    int size;
+    int temp;
+    char *string;
+
+    i = 0;
+    size = 0;
+    temp = 0;
+    while(i < size_matrix -1)
+    {     
+        temp = ft_strlen_ch(&str[size], ' ', '\'');
+        matrix[i] = ft_calloc(sizeof(char), temp +1);
+        ft_strlcpy(matrix[i], &str[size], temp);
+        size += temp;
+        i++;
+    }
 }
 
-static void	ft_get_cmd_full(t_var *var, char *argv[])
+static void ft_alloc_matrix(t_var *var, char *argv[], int argc)
 {
-	int	i;
-	int	index;
+    int i_pointer;
+    int size_matrix;
+    int i;
 
-	i = var->cmd_start_position;
-	index = 0;
-	while (i <= var->cmd_end_position)
-	{
-		var->arg->cmd_full[index] = ft_strdup(argv[i]);
-		var->arg->path_cmd_full[index] = ft_cp_even_my_limiter(var->arg->cmd_full[index], ' ');
-		i++;
-		index++;
-	}
-	
+    i_pointer = 0;
+    i = var->cmd_start_position;
+    while (i_pointer < var->nbr_cmd)
+    {
+        size_matrix = ft_size_matrix(argv[i], ' ', '\'' ) +1;
+        var->arg->cmd[i_pointer] = ft_calloc(sizeof(char *), size_matrix);
+        if(!var->arg->cmd[i_pointer])
+            ft_error_alocation("memory allocation error");
+        ft_cpy_array_to_matrix(var->arg->cmd[i_pointer], argv[i],size_matrix);
+        i++;
+        i_pointer++;
+    }
 }
 
-void	ft_get_cmd(t_var *var, char *argv[], int argc)
+static void ft_init_variables(t_var *var, char *argv[], int argc)
 {
-	ft_init_pointers_cmd(var, argc);
-	ft_get_cmd_full(var, argv);
+    var->cmd_start_position = 2;
+    var->cmd_end_position = argc-2;
+    var->nbr_cmd = argc -3;
+    var->arg->cmd = ft_calloc(sizeof(char **), var->nbr_cmd +1);
+    if (!var->arg->cmd)
+        ft_error_alocation("memory allocation error");
+    ft_alloc_matrix(var, argv, argc);
+}
+void	ft_get_command(t_var *var, char *argv[], int argc)
+{
+    ft_init_variables(var, argv, argc);
 }

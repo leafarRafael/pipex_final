@@ -3,46 +3,61 @@
 /*                                                        :::      ::::::::   */
 /*   about_other_utilities.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 09:47:30 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/04 11:22:25 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/05 17:08:39 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int	ft_strlen_ch(char *str, char limiter)
+int	ft_size_matrix(char *str, char c_to_count, char delimiter)
 {
-	int	i;
+	int	index;
+    int	is_limiter;
+    int	is_character_to_count;
 
-	i = 0;
-	if (!str)
-		return (0);
-	if (!limiter || limiter == '\n')
-		return (ft_strlen(str));
-	while (str[i] != limiter)
-		i++;
-	return (i);
+    is_character_to_count = 1;
+    is_limiter = 0;
+    index = 0;
+    while (str[index] != '\0')
+    {
+        if (str[index] == delimiter)
+            is_limiter++;
+        if (is_limiter % 2 == 0)
+            if (str[index] == c_to_count && str[index +1] != c_to_count && str[index +1] != '\0')
+                is_character_to_count++;
+        index++;
+    }
+    return (is_character_to_count);
 }
 
-char	*ft_cp_even_my_limiter(char *str, char limiter)
+int	ft_strlen_ch(char *str, char stop_if, char ignore_if)
 {
-	int		i;
-	int		size;
-	char	*new_str;
+    int i;
+    int ignore;
 
-	size = ft_strlen_ch(str, limiter) +1;
-	i = 0;
-	if (!str || !limiter || size == 0)
-		return (NULL);
-	new_str = ft_calloc(sizeof(char), size +1);
-	if (!new_str)
-		return (NULL);
-	while (str[i] != limiter && str[i] != '\0')
-	{
-		new_str[i] = str[i];
-		i++;
-	}
-	return (new_str);
+    ignore = 1;
+    i = 0;
+    while (str[i] == ' ')
+        i++;
+    while (str[i] != '\0')
+    {
+        if (str[i] == ignore_if)
+        {
+            i++;
+            if (str[i] == '\0')
+                return (++i);
+            ignore++;
+        }
+        if (ignore % 2 == 0)            
+            if (str[i] == ignore_if)
+                ignore++;
+        if (ignore % 2 != 0)
+            if (str[i] == stop_if)
+                return (++i);
+        i++;
+    }
+    return (++i);
 }
