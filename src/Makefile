@@ -2,7 +2,8 @@ NAME			:= pipex.a
 
 SRC_BONUS		:= funcoes_temp.c main.c about_struct.c about_nbr_args.c\
 				about_envp.c about_command.c about_nbr_args.c about_command.c\
-				about_files.c about_other_utilities.c about_free_memory.c
+				about_files.c about_other_utilities.c about_free_memory.c\
+				about_executable.c about_children.c
 
 NUM_FILES		:= $(words $(SRC_BONUS))
 O_FILE_PATH 	:= /o_file

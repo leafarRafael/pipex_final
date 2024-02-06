@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 15:29:48 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/05 17:59:25 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/06 10:06:15 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 		start++;
 	if (start >= end)
 	{
-		new_array = ft_calloc (sizeof(char), 1);
-		if (!new_array)
+		new_array = ft_calloc (1, 1);
+		if (new_array == NULL)
 			return (NULL);
 		new_array[0] = '\0';
 		return (new_array);
@@ -49,7 +49,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (ft_ask_set(set, s1[end]) == 1)
 		end--;
 	new_array = ft_calloc(sizeof(char), ((end - start) + 2));
-	if (!new_array)
+	if (new_array == NULL)
 		return (NULL);
 	ft_strlcpy(new_array, &s1[start], ((end - start) + 2));
 	return (new_array);

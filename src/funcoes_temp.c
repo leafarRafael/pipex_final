@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   funcoes_temp.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 11:21:58 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/01/27 13:54:29 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/06 09:46:02 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ void	ft_put_matrix(char **matrix)
 	}
 	while (matrix[i])
 	{
-		ft_printf("%s\n", matrix[i]);
+		ft_putstr_fd(matrix[i], 2);
+		ft_putstr_fd("\n", 2);
 		i++;
 	}
 }

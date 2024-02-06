@@ -6,18 +6,33 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 13:20:08 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/05 18:04:05 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/06 10:42:06 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+
+static char *ft_remove_space(char *str)
+{
+    int     i;
+    char    *new_arrey;
+
+    i = 0;
+    while (str[i] == ' ')
+        i++;
+    if (i == 0)
+        return (str);
+    new_arrey = ft_strdup(&str[i]);
+    free(str);
+    return (new_arrey);
+}
 
 static void ft_cpy_array_to_matrix(char **matrix, char *str, int size_matrix)
 {
     int i;
     int size;
     int temp;
-    char *string;
+    char *temp_array;
 
     i = 0;
     size = 0;
@@ -27,6 +42,8 @@ static void ft_cpy_array_to_matrix(char **matrix, char *str, int size_matrix)
         temp = ft_strlen_ch(&str[size], ' ', '\'');
         matrix[i] = ft_calloc(sizeof(char), temp +1);
         ft_strlcpy(matrix[i], &str[size], temp);
+        matrix[i] = ft_remove_space(matrix[i]);
+        matrix[i] = ft_strtrim(matrix[i], "'");
         size += temp;
         i++;
     }
@@ -45,7 +62,7 @@ static void ft_alloc_matrix(t_var *var, char *argv[], int argc)
         size_matrix = ft_size_matrix(argv[i], ' ', '\'' ) +1;
         var->arg->cmd[i_pointer] = ft_calloc(sizeof(char *), size_matrix);
         if(!var->arg->cmd[i_pointer])
-            ft_error_alocation("memory allocation error");
+            ft_error(var, "memory allocation error");
         ft_cpy_array_to_matrix(var->arg->cmd[i_pointer], argv[i],size_matrix);
         i++;
         i_pointer++;
@@ -59,9 +76,10 @@ static void ft_init_variables(t_var *var, char *argv[], int argc)
     var->nbr_cmd = argc -3;
     var->arg->cmd = ft_calloc(sizeof(char **), var->nbr_cmd +1);
     if (!var->arg->cmd)
-        ft_error_alocation("memory allocation error");
+        ft_error(var, "memory allocation error");
     ft_alloc_matrix(var, argv, argc);
 }
+
 void	ft_get_command(t_var *var, char *argv[], int argc)
 {
     ft_init_variables(var, argv, argc);

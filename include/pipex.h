@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 12:14:58 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/05 16:56:03 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/06 09:41:28 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <errno.h>
 #include "ft_printf.h"
 
 # define CMD_NOT_FOUND "command not found\n"
@@ -46,6 +48,9 @@ typedef	struct t_arguments
 typedef struct s_variables
 {
 	char	**path;
+	char	*path_exe;
+	int		infile;
+	int		outfile;
 	int		cmd_start_position;
 	int		cmd_end_position;
 	int		nbr_cmd;
@@ -60,8 +65,11 @@ void	ft_get_files(t_var *var, char **argv, int argc);
 void	ft_get_command(t_var *var, char *argv[], int argc);
 int		ft_size_matrix(char *str, char c_to_count, char delimiter);
 int		ft_strlen_ch(char *str, char stop_if, char ignore_if);
-void	ft_error_alocation(char *str);
+void	ft_error(t_var *var, char *str);
 void    ft_free_all_mem_allocation(t_var *var);
+char    *ft_valid_exe(t_var *var, int i_child);
+void	ft_first_child(t_var *var, int *i_child);
+void	ft_last_child(t_var *var, int *i_child);
 
 
 

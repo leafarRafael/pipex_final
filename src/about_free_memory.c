@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:45:42 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/05 18:05:10 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/06 08:58:58 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,6 @@ void    ft_free_all_mem_allocation(t_var *var)
         ft_free_pointer_matrix(var->arg->cmd);
     if (var->path)
         ft_free_matrix(var->path);
+    if (var->path_exe)
+        ft_free(var->path_exe);
 }
