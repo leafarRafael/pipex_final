@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   about_children.c                                   :+:      :+:    :+:   */
+/*   about_children_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 09:04:30 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/07 17:55:06 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/07 18:16:21 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "pipex_bonus.h"
 
 void	ft_first_child(t_var *var, int *i_child)
 {

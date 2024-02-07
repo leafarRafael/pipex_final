@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   about_envp.c                                       :+:      :+:    :+:   */
+/*   about_executable_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/03 13:04:44 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/07 18:01:22 by rbutzke          ###   ########.fr       */
+/*   Created: 2024/02/06 08:39:10 by rbutzke           #+#    #+#             */
+/*   Updated: 2024/02/07 18:16:36 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "pipex_bonus.h"
 
-void	ft_get_path(t_var *var, char **envp)
+char	*ft_valid_exe(t_var *var, int i_child)
 {
 	int		i;
 	char	*temp;
 
 	i = 0;
-	while (ft_strncmp(envp[i], "PATH=/", 5))
-		i++;
-	var->path = ft_split(&envp[i][5], ':');
-	if (!var->path)
-		ft_mem_alloc_error(var, "memory allocation error");
-	i = 0;
+	if (access(var->arg->cmd[i_child][0], X_OK | F_OK) == 0)
+		return (var->arg->cmd[i_child][0]);
 	while (var->path[i])
 	{
-		temp = ft_strjoin(var->path[i], "/");
+		temp = ft_strjoin(var->path[i], var->arg->cmd[i_child][0]);
 		if (!temp)
 			ft_mem_alloc_error(var, "memory allocation error");
-		free(var->path[i]);
-		var->path[i] = temp;
+		if (access(temp, X_OK | F_OK) == 0)
+			return (temp);
+		free(temp);
 		i++;
 	}
+	temp = ft_strdup(var->arg->cmd[i_child][0]);
+	if (!temp)
+		ft_mem_alloc_error(var, "memory allocation error");
+	return (temp);
 }

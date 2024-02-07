@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   about_other_utilities.c                            :+:      :+:    :+:   */
+/*   about_other_utilities_bonus.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 09:47:30 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/07 18:05:44 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/07 18:16:49 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "pipex_bonus.h"
 
 int	ft_size_matrix(char *str, char c_to_count, char delimiter)
 {

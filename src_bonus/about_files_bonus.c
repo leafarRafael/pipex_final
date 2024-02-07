@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   about_nbr_args.c                                   :+:      :+:    :+:   */
+/*   about_files_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/03 12:40:38 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/07 18:04:34 by rbutzke          ###   ########.fr       */
+/*   Created: 2024/02/03 13:27:39 by rbutzke           #+#    #+#             */
+/*   Updated: 2024/02/07 18:16:40 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "pipex_bonus.h"
 
-void	ft_valid_nbr_args(int argc)
+void	ft_get_files(t_var *var, char **argv, int argc)
 {
-	if (argc > 5)
-	{
-		ft_putstr_fd("Check the number of arguments \n", 2);
-		exit(EXIT_FAILURE);
-	}
+	var->arg->file1 = ft_strdup(argv[1]);
+	var->arg->file2 = ft_strdup(argv[argc -1]);
+	if (!var->arg->file1 || !var->arg->file2)
+		ft_mem_alloc_error(var, "memory allocation error");
 }

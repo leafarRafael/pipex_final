@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   funcoes_temp.c                                     :+:      :+:    :+:   */
+/*   funcoes_temp_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 11:21:58 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/06 09:46:02 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/07 18:16:56 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "pipex_bonus.h"
 
 void	ft_put_matrix(char **matrix)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!matrix)
@@ -32,7 +32,7 @@ void	ft_put_matrix(char **matrix)
 
 void	ft_put_pointer_matrix(char ***pointer)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (pointer[i])

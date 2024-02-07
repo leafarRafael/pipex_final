@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   about_nbr_args.c                                   :+:      :+:    :+:   */
+/*   about_struct_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/03 12:40:38 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/07 18:04:34 by rbutzke          ###   ########.fr       */
+/*   Created: 2024/02/03 12:44:35 by rbutzke           #+#    #+#             */
+/*   Updated: 2024/02/07 18:16:53 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "pipex_bonus.h"
 
-void	ft_valid_nbr_args(int argc)
+void	*ft_init_my_struct(int type)
 {
-	if (argc > 5)
-	{
-		ft_putstr_fd("Check the number of arguments \n", 2);
-		exit(EXIT_FAILURE);
-	}
+	static t_var	variables;
+	static t_arg	args;
+
+	if (type == 0)
+		return (&variables);
+	if (type == 1)
+		return (&args);
+	return (NULL);
 }
