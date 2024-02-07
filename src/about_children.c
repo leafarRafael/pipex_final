@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   about_children.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 09:04:30 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/06 09:44:35 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/07 14:51:35 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ void	ft_last_child(t_var *var, int *i_child)
         close(pipe_fd[0]);
         close(pipe_fd[1]);
         close(var->outfile);
-        ft_put_pointer_matrix(var->arg->cmd);
         if (execve(var->path_exe, var->arg->cmd[*i_child], var->path) == -1)
 			perror(strerror(errno));
     }

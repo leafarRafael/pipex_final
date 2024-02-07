@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   about_other_utilities.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 09:47:30 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/06 10:49:29 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/07 14:51:45 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,10 @@ int	ft_size_matrix(char *str, char c_to_count, char delimiter)
         if (str[index] == delimiter)
             is_limiter++;
         if (is_limiter % 2 == 0)
-            if (str[index] == c_to_count && str[index +1] != c_to_count && str[index +1] != '\0')
+            if (str[index] == c_to_count && str[index +1] != c_to_count && str[index +1] != '\0' && str[index -1] != c_to_count)
                 is_character_to_count++;
         index++;
     }
-    ft_putnbr_fd(is_character_to_count, 2);
     return (is_character_to_count);
 }
 

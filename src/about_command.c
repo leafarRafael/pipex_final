@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   about_command.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 13:20:08 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/06 10:42:06 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/07 14:50:25 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,17 @@ static void ft_cpy_array_to_matrix(char **matrix, char *str, int size_matrix)
     size = 0;
     temp = 0;
     while(i < size_matrix -1)
-    {     
+    {
         temp = ft_strlen_ch(&str[size], ' ', '\'');
-        matrix[i] = ft_calloc(sizeof(char), temp +1);
-        ft_strlcpy(matrix[i], &str[size], temp);
-        matrix[i] = ft_remove_space(matrix[i]);
-        matrix[i] = ft_strtrim(matrix[i], "'");
+        temp_array = ft_calloc(sizeof(char), temp +1);
+        ft_strlcpy(temp_array, &str[size], temp);
+        temp_array = ft_remove_space(temp_array);
+        matrix[i] = ft_strtrim(temp_array, "'");
+        free(temp_array);
         size += temp;
         i++;
     }
+
 }
 
 static void ft_alloc_matrix(t_var *var, char *argv[], int argc)
