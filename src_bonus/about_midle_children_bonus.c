@@ -6,14 +6,14 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 09:04:30 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/08 09:44:53 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/08 16:22:20 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex_bonus.h"
 
 void	ft_midle_child(t_var *var, int *i_child)
-{	
+{
 	if (pipe(var->pipe_fd) < 0)
 		ft_error(var, NULL, "erro open pipe_fd", 1);
 	var->pid[*i_child] = fork();
