@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   about_command_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 13:20:08 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/07 18:16:26 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/08 15:24:31 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,6 @@ static void	ft_alloc_matrix(t_var *var, char *argv[])
 
 static void	ft_init_variables(t_var *var, char *argv[], int argc)
 {
-	var->cmd_start_position = 2;
-	var->cmd_end_position = argc - 2;
-	var->nbr_cmd = argc - 3;
 	var->arg->cmd = ft_calloc(sizeof(char **), var->nbr_cmd +1);
 	var->pid = ft_calloc(sizeof(pid_t *), var->nbr_cmd +1);
 	if (!var->arg->cmd || !var->pid)
