@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 12:38:05 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/08 15:40:01 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/08 16:05:37 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(int argc, char *argv[], char *envp[])
 	int		i_child;
 
 	i_child = 0;
-	//ft_valid_nbr_args(argc);
+	ft_valid_nbr_args(argc);
 	var = (t_var *) ft_init_my_struct(VARIABLES);
 	var->arg = (t_arg *) ft_init_my_struct(ARGUMENTS);
 	ft_get_path(var, envp);
