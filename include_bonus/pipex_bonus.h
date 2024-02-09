@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 12:14:58 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/09 08:46:02 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/09 12:35:43 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	ft_valid_nbr_args(int argc);
 void	*ft_init_my_struct(int type);
 void	ft_get_path(t_var *var, char **envp);
 void	ft_get_files(t_var *var, char **argv, int argc);
-void	ft_get_command(t_var *var, char *argv[], int argc);
+void	ft_get_command(t_var *var, char *argv[]);
 int		ft_size_matrix(char *str, char c_to_count, char delimiter);
 int		ft_strlen_ch(char *str, char stop_if, char ignore_if);
 void	ft_mem_alloc_error(t_var *var, char *str);

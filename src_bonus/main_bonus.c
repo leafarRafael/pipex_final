@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 12:38:05 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/09 10:46:48 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/09 12:35:30 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	main(int argc, char *argv[], char *envp[])
 	var->arg = (t_arg *) ft_init_my_struct(ARGUMENTS);
 	ft_get_path(var, envp);
 	ft_get_files(var, argv, argc);
-	ft_get_command(var, argv, argc);
+	ft_get_command(var, argv);
 	ft_fork_manager(var, &i_child);
 	waitpid(var->pid[i_child], &var->exit_status, 0);
 	ft_free_all_mem_allocation(var);

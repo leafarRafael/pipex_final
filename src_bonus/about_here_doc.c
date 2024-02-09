@@ -6,13 +6,13 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 15:37:07 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/09 09:17:53 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/09 12:36:36 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex_bonus.h"
 
-static void	ft_help_here_doc(t_var *var, int *i_child)
+static void	ft_help_here_doc(t_var *var)
 {
 	char	*temp;
 
@@ -41,7 +41,7 @@ void	ft_here_doc(t_var *var, int *i_child)
 	pipe(var->pipe_fd);
 	var->pid[*i_child] = fork();
 	if (var->pid[*i_child] == 0)
-		ft_help_here_doc(var, i_child);
+		ft_help_here_doc(var);
 	else
 	{
 		waitpid(var->pid[*i_child], NULL, 0);

@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 13:20:08 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/09 11:23:42 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/09 12:35:22 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ static void	ft_alloc_matrix(t_var *var, char *argv[])
 	}
 }
 
-static void	ft_init_variables(t_var *var, char *argv[], int argc)
+static void	ft_init_variables(t_var *var, char *argv[])
 {
 	var->arg->cmd = ft_calloc(sizeof(char **), var->nbr_cmd +1);
 	var->pid = ft_calloc(sizeof(pid_t *), var->nbr_cmd +1);
@@ -79,7 +79,7 @@ static void	ft_init_variables(t_var *var, char *argv[], int argc)
 	ft_alloc_matrix(var, argv);
 }
 
-void	ft_get_command(t_var *var, char *argv[], int argc)
+void	ft_get_command(t_var *var, char *argv[])
 {
-	ft_init_variables(var, argv, argc);
+	ft_init_variables(var, argv);
 }
