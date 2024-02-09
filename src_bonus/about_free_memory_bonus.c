@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:45:42 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/07 18:16:43 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/09 09:08:17 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,10 @@ void	ft_free_all_mem_allocation(t_var *var)
 		ft_free(var->arg->file1);
 	if (var->arg->file2)
 		ft_free(var->arg->file2);
+	if (var->arg->here_doc)
+		ft_free(var->arg->here_doc);
+	if (var->arg->limiter)
+		ft_free(var->arg->limiter);
 	if (var->arg->cmd)
 		ft_free_pointer_matrix(var->arg->cmd);
 	if (var->path)

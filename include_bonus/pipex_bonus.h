@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 12:14:58 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/08 15:38:55 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/09 08:46:02 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ typedef struct s_variables
 	int		cmd_start_position;
 	int		cmd_end_position;
 	int		nbr_cmd;
-	int		size;
 	t_arg	*arg;
 }			t_var;
 

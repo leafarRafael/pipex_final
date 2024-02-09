@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   about_last_children_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 09:08:51 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/08 16:21:17 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/09 09:47:37 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static void	ft_helper_child(t_var *var, int *i_child)
 	close(var->outfile);
 	if (execve(var->path_exe, var->arg->cmd[*i_child], var->path) == -1)
 		ft_error(var, var->path_exe, "command not found", 127);
+	ft_free_all_mem_allocation(var);
 }
 
 void	ft_last_child(t_var *var, int *i_child)

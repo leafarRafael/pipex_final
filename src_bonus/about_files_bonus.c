@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   about_files_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 13:27:39 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/08 15:35:48 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/09 09:36:07 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	ft_get_files(t_var *var, char **argv, int argc)
 {
 	if (ft_strncmp(argv[1], "here_doc", 8) == 0)
 	{
+		ft_putstr_fd("\n\n\nENTROU\n\n\n", 2);
 		var->arg->here_doc = ft_strdup(argv[1]);
 		var->arg->limiter = ft_strdup(argv[2]);
 		if (!var->arg->here_doc || !var->arg->limiter)

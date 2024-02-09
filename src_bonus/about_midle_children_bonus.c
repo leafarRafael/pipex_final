@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   about_midle_children_bonus.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 09:04:30 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/08 16:22:20 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/09 09:47:44 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	ft_midle_child(t_var *var, int *i_child)
 		close(var->pipe_fd[1]);
 		if (execve(var->path_exe, var->arg->cmd[*i_child], var->path) == -1)
 			ft_error(var, var->path_exe, "command not found", 127);
+		ft_free_all_mem_allocation(var);
 	}
 	else
 	{

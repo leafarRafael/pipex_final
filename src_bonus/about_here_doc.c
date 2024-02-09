@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   about_here_doc.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 15:37:07 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/08 16:23:02 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/09 09:17:53 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ static void	ft_help_here_doc(t_var *var, int *i_child)
 		free(temp);
 	}
 	close(var->pipe_fd[1]);
+	ft_free_all_mem_allocation(var);
 	exit(EXIT_SUCCESS);
 }
 
