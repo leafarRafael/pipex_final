@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+         #
+#    By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/15 16:27:25 by rbutzke           #+#    #+#              #
-#    Updated: 2024/02/08 08:58:03 by rbutzke          ###   ########.fr        #
+#    Updated: 2024/02/09 12:28:20 by rbutzke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME					:= pipex
-CFLAGS					:= #-Wextra -Wall -Werror -g3
+CFLAGS					:= -Wextra -Wall -Werror -g3
 CC						:= cc
 LIBFT					:= ./lib/lib_get_print/libft.a
 PATH_MAKE_LIB			:= ./lib/lib_get_print

@@ -24,7 +24,7 @@ OBJS		:= ./objs
 INCLUDES = ./includes
 O_FILE = $(FILES:%.c=$(OBJS)/%.o)
 CC = cc
-CFLAGS = #-Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
 O_FLAGS = -c
 
 all :$(NAME)

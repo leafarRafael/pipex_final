@@ -1,17 +1,17 @@
 NAME			:= pipex.a
 
-SRC_BONUS		:= main.c about_struct.c about_nbr_args.c\
+SRC		:= main.c about_struct.c about_nbr_args.c\
 				about_envp.c about_command.c about_nbr_args.c about_command.c\
 				about_files.c about_other_utilities.c about_free_memory.c\
 				about_executable.c about_children.c about_error_handling.c
 
-NUM_FILES		:= $(words $(SRC_BONUS))
+NUM_FILES		:= $(words $(SRC))
 O_FILE_PATH 	:= /o_file
 OBJS			:= ./objs
 INCLUDES		:= -I ../include -I ../lib/lib_get_print/includes
-O_FILE			:= $(SRC_BONUS:%.c=$(OBJS)/%.o)
+O_FILE			:= $(SRC:%.c=$(OBJS)/%.o)
 CC				:= cc
-CFLAGS 			:= #-Wall -Werror -Wextra
+CFLAGS 			:= -Wall -Werror -Wextra
 O_FLAGS 		:= -c
 CMD_CLEAN		:= rm -Rf
 CMD_FCLEAN		:= rm -rf

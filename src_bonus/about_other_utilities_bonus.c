@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 09:47:30 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/09 10:38:31 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/09 12:27:28 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ int	ft_size_matrix(char *str, char c_to_count, char delimiter)
 		if (str[index] == delimiter)
 			is_limiter++;
 		if (is_limiter % 2 == 0)
-			if (str[index] == c_to_count && str[index +1] != c_to_count
-				&& str[index +1] != '\0' && str[index -1] != c_to_count)
+			if (str[index] == c_to_count
+				&& str[index +1] != c_to_count && str[index +1] != '\0')
 				is_character_to_count++;
 		index++;
 	}
