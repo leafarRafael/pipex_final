@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   about_midle_children_bonus.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 09:04:30 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/09 09:47:44 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/11 09:22:02 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 void	ft_midle_child(t_var *var, int *i_child)
 {
 	if (pipe(var->pipe_fd) < 0)
-		ft_error(var, NULL, "erro open pipe_fd", 1);
+		ft_error(var, "erro open pipe_fd", 1);
 	var->pid[*i_child] = fork();
 	if (var->pid[*i_child] < 0)
-		ft_putstr_fd("error start child process", 1);
+		ft_error(var, "error start child process", 1);
 	if (var->pid[*i_child] == 0)
 	{
 		var->path_exe = ft_valid_exe(var, *i_child);
@@ -26,8 +26,7 @@ void	ft_midle_child(t_var *var, int *i_child)
 		dup2(var->pipe_fd[1], STDOUT_FILENO);
 		close(var->pipe_fd[1]);
 		if (execve(var->path_exe, var->arg->cmd[*i_child], var->path) == -1)
-			ft_error(var, var->path_exe, "command not found", 127);
-		ft_free_all_mem_allocation(var);
+			ft_error(var, var->path_exe, 127);
 	}
 	else
 	{

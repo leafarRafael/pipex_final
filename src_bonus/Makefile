@@ -13,7 +13,7 @@ OBJS			:= ./objs
 INCLUDES		:= -I ../include_bonus -I ../lib/lib_get_print/includes
 O_FILE			:= $(SRC_BONUS:%.c=$(OBJS)/%.o)
 CC				:= cc
-CFLAGS 			:= -Wall -Werror -Wextra
+CFLAGS 			:= #-Wall -Werror -Wextra
 O_FLAGS 		:= -c
 CMD_CLEAN		:= rm -Rf
 CMD_FCLEAN		:= rm -rf

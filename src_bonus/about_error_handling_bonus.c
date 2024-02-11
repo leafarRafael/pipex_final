@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   about_error_handling_bonus.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 16:27:57 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/09 18:12:56 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/11 10:02:25 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,27 +20,27 @@ void	ft_mem_alloc_error(t_var *var, char *str)
 	exit(EXIT_FAILURE);
 }
 
-void	ft_error(t_var	*var, char *str1, char *str2, int error_type)
+void	ft_error(t_var	*var, char *str1, int error_type)
 {
 	if (error_type == 1)
 	{
-		ft_putstr_fd("pipex: ", 2);
-		if (str1)
-			perror(str1);
-		if (str2)
-			ft_putstr_fd(str2, 2);
-		ft_putstr_fd("\n", 2);
+		write(STDERR_FILENO, "pipex: ", 7);
+		perror(str1);
+	}
+	else if (error_type == 126)
+	{
+		write(STDERR_FILENO, "pipex: ", 7);
+		perror(str1);
 	}
 	else if (error_type == 127)
 	{
-		ft_putstr_fd("pipex: ", 2);
-		if (str1)
-			ft_putstr_fd(str1, 2);
-		ft_putstr_fd(": ", 2);
-		if (str2)
-			ft_putstr_fd(str2, 2);
-		ft_putstr_fd("\n", 2);
+		write(STDERR_FILENO, "pipex: ", 7);
+		write(STDERR_FILENO, str1, ft_strlen(str1));
+		write(STDERR_FILENO, ": ", 2);
+		write(STDERR_FILENO, "command not found", 18);
+		write(STDERR_FILENO, "\n", 1);
 	}
+	ft_close(var);
 	ft_free_all_mem_allocation(var);
 	exit(error_type);
 }

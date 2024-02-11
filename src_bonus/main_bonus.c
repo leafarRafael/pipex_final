@@ -3,14 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 12:38:05 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/09 12:35:30 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/11 10:04:38 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex_bonus.h"
+
+void	ft_close(t_var *var)
+{
+	close(var->pipe_fd[1]);
+	close(var->pipe_fd[0]);
+	close(STDERR_FILENO);
+	close(STDIN_FILENO);
+	close(STDOUT_FILENO);
+}
 
 void	ft_fork_manager(t_var *var, int *i_child)
 {
@@ -40,6 +49,7 @@ int	main(int argc, char *argv[], char *envp[])
 	ft_get_files(var, argv, argc);
 	ft_get_command(var, argv);
 	ft_fork_manager(var, &i_child);
+	ft_close(var);
 	waitpid(var->pid[i_child], &var->exit_status, 0);
 	ft_free_all_mem_allocation(var);
 	return (get_exit_status(var->exit_status));

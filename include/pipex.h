@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 12:14:58 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/07 18:18:17 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/11 10:17:51 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,8 @@ void	ft_free_all_mem_allocation(t_var *var);
 char	*ft_valid_exe(t_var *var, int i_child);
 void	ft_first_child(t_var *var, int *i_child);
 void	ft_last_child(t_var *var, int *i_child);
-void	ft_error(t_var	*var, char *str1, char *str2, int error_type);
+void	ft_error(t_var	*var, char *str1, int error_type);
 int		get_exit_status(int exit_status);
+void	ft_close(t_var *var);
 
 #endif
