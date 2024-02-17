@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 12:14:58 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/11 10:01:58 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/17 11:56:44 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,8 @@ void	ft_here_doc(t_var *var, int *i_child);
 void	ft_first_child(t_var *var, int *i_child);
 void	ft_midle_child(t_var *var, int *i_child);
 void	ft_last_child(t_var *var, int *i_child);
-void	ft_error(t_var	*var, char *str1, int error_type);
+void	ft_common_error(t_var *var, char *file, char *error_msg, int status);
+void	ft_error_null(t_var *var, char *msg, int status);
 void	ft_close(t_var *var);
 int		get_exit_status(int exit_status);
 

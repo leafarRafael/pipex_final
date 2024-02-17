@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 13:04:44 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/07 18:01:22 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/17 13:01:43 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_get_path(t_var *var, char **envp)
 	char	*temp;
 
 	i = 0;
-	while (ft_strncmp(envp[i], "PATH=/", 5))
+	while (ft_strncmp(envp[i], "PATH=", 5))
 		i++;
 	var->path = ft_split(&envp[i][5], ':');
 	if (!var->path)

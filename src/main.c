@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 12:38:05 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/11 10:17:24 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/17 12:00:59 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ int	main(int argc, char *argv[], char *envp[])
 	ft_get_path(var, envp);
 	ft_get_files(var, argv, argc);
 	ft_get_command(var, argv, argc);
-	if (pipe(var->pipe_fd) < 0)
-		ft_mem_alloc_error(var, "erro open pipe_fd");
 	ft_first_child(var, &i_child);
 	i_child++;
 	ft_last_child(var, &i_child);

@@ -1,6 +1,6 @@
 NAME			:= pipex.a
 
-SRC		:= main.c about_struct.c about_nbr_args.c\
+SRC				:= main.c about_struct.c about_nbr_args.c\
 				about_envp.c about_command.c about_nbr_args.c about_command.c\
 				about_files.c about_other_utilities.c about_free_memory.c\
 				about_executable.c about_children.c about_error_handling.c

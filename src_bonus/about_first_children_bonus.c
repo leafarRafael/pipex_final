@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   about_first_children_bonus.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 09:08:02 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/11 09:19:44 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/17 11:41:20 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,24 @@ static void	ft_first_child_helper(t_var *var, int *i_child)
 {
 	var->infile = open(var->arg->file1, O_RDONLY);
 	if (var->infile == -1)
-		ft_error(var, var->arg->file1, 1);
-	var->path_exe = ft_valid_exe(var, *i_child);
+		ft_common_error(var, var->arg->file1, strerror(errno), 1);
 	dup2(var->infile, STDIN_FILENO);
 	dup2(var->pipe_fd[1], STDOUT_FILENO);
 	close(var->pipe_fd[0]);
 	close(var->pipe_fd[1]);
 	close(var->infile);
+	var->path_exe = ft_valid_exe(var, *i_child);
 	if (execve(var->path_exe, var->arg->cmd[*i_child], var->path) == -1)
-		ft_error(var, var->path_exe, 127);
+		ft_common_error(var, var->path_exe, strerror(errno), 1);
 }
 
 void	ft_first_child(t_var *var, int *i_child)
 {
-	if (pipe(var->pipe_fd) < 0)
-		ft_error(var, "error creating pipe", 0);
+	if (pipe(var->pipe_fd) == -1)
+		ft_common_error(var, "pipe definition ", strerror(errno), 3);
 	var->pid[*i_child] = fork();
 	if (var->pid[*i_child] < 0)
-		ft_error(var, "error creating process", 0);
+		ft_common_error(var, "fork definition ", strerror(errno), 4);
 	if (var->pid[*i_child] == 0)
 		ft_first_child_helper(var, i_child);
 	else
