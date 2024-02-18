@@ -20,7 +20,7 @@ FILES = libft/src_ctype/ft_isalnum.c libft/src_ctype/ft_isascii.c libft/src_ctyp
 NUM_FILES	:= $(words $(FILES))
 
 O_FILE_PATH := /o_file
-OBJS		:= ./objs
+OBJS		:= ./objs_libft
 INCLUDES = ./includes
 O_FILE = $(FILES:%.c=$(OBJS)/%.o)
 CC = cc
@@ -40,7 +40,7 @@ $(OBJS)/%.o: %.c
 	@$(CC) -I$(INCLUDES) $(O_FLAGS) $(CFLAGS) $< -o $@
 	@ar -rc $(NAME) $@
 	@$(eval COUNT := $(shell echo $$(($(COUNT)+1))))
-	@echo "[$(shell echo 	$$(($(COUNT) * 100 / $(NUM_FILES))))%] libft Progress"
+	@echo "  *   [$(shell echo 	$$(($(COUNT) * 100 / $(NUM_FILES))))%] libft Progress  *"
 
 clean:
 	rm -Rf $(OBJS)

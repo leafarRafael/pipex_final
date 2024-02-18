@@ -9,7 +9,7 @@ SRC_BONUS		:= funcoes_temp_bonus.c main_bonus.c about_struct_bonus.c about_nbr_a
 
 NUM_FILES		:= $(words $(SRC_BONUS))
 O_FILE_PATH 	:= /o_file
-OBJS			:= ./objs
+OBJS			:= ./objs_ipex_bonus
 INCLUDES		:= -I ../include_bonus -I ../lib/lib_get_print/includes
 O_FILE			:= $(SRC_BONUS:%.c=$(OBJS)/%.o)
 CC				:= cc
@@ -18,7 +18,7 @@ O_FLAGS 		:= -c
 CMD_CLEAN		:= rm -Rf
 CMD_FCLEAN		:= rm -rf
 
-all : $(NAME)
+all: $(NAME)
 
 $(NAME): $(O_FILE) $(LIBFT)
 
@@ -27,13 +27,13 @@ $(OBJS)/%.o: %.c
 	@$(CC) $(INCLUDES) $(O_FLAGS) $(CFLAGS) $< -o $@
 	@ar -rc $(NAME) $@
 	@$(eval COUNT := $(shell echo $$(($(COUNT)+1))))
-	@echo "[$(shell echo 	$$(($(COUNT) * 100 / $(NUM_FILES))))%] pipex_bonus Progress"
+	@echo "  *   [$(shell echo 	$$(($(COUNT) * 100 / $(NUM_FILES))))%] pipex_bonus Progress   *"
 
 clean:
-	@$(CMD_CLEAN) $(OBJS) $(NAME)
+	$(CMD_CLEAN) $(OBJS)
 
 fclean: clean
-	@$(CMD_FCLEAN) $(NAME)
+	$(CMD_FCLEAN) $(NAME)
 
 re: fclean all
 
