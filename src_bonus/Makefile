@@ -9,7 +9,7 @@ SRC_BONUS		:= funcoes_temp_bonus.c main_bonus.c about_struct_bonus.c about_nbr_a
 
 NUM_FILES		:= $(words $(SRC_BONUS))
 O_FILE_PATH 	:= /o_file
-OBJS			:= ./objs_ipex_bonus
+OBJS			:= ./objs_pipex_bonus
 INCLUDES		:= -I ../include_bonus -I ../lib/lib_get_print/includes
 O_FILE			:= $(SRC_BONUS:%.c=$(OBJS)/%.o)
 CC				:= cc
