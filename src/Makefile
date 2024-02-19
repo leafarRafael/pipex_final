@@ -6,7 +6,6 @@ SRC				:= main.c about_struct.c about_nbr_args.c\
 				about_executable.c about_children.c about_error_handling.c
 
 NUM_FILES		:= $(words $(SRC))
-O_FILE_PATH 	:= /o_file
 OBJS			:= ./objs_pipex
 INCLUDES		:= -I ../include -I ../lib/lib_get_print/includes
 O_FILE			:= $(SRC:%.c=$(OBJS)/%.o)
@@ -19,11 +18,12 @@ CMD_FCLEAN		:= rm -rf
 all : $(NAME)
 
 $(NAME): $(O_FILE)
+	@echo "  *   [100%] pipex_a Progress  *"
+	@ar -rc $(NAME) $(O_FILE)
 
 $(OBJS)/%.o: %.c
 	@mkdir -p $(@D)
 	@$(CC) $(INCLUDES) $(O_FLAGS) $(CFLAGS) $< -o $@
-	@ar -rc $(NAME) $@
 	@$(eval COUNT := $(shell echo $$(($(COUNT)+1))))
 	@echo "  *   [$(shell echo 	$$(($(COUNT) * 100 / $(NUM_FILES))))%] pipex_a Progress   *"
 
