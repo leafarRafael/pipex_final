@@ -6,7 +6,7 @@
 #    By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/15 16:27:25 by rbutzke           #+#    #+#              #
-#    Updated: 2024/02/18 13:52:18 by rbutzke          ###   ########.fr        #
+#    Updated: 2024/04/03 08:46:06 by rbutzke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ bonus: $(NAME_BONUS)
 
 $(NAME_BONUS): $(LIBFT) $(PIPEX_BONUS_A)
 	@echo "   $(NAME_BONUS): program created successfully"
-	@$(CC) $(PIPEX_BONUS_A) $(LIBFT) $(INCLUDE_BONUS) -o $(NAME_BONUS)
+	@$(CC) $(PIPEX_BONUS_A) $(LIBFT) $(INCLUDE_BONUS) -o $(NAME)
 	@echo ""
 	@echo "   to use the program:"
 	@echo "   ./$(NAME_BONUS) input_file cmd1 \"cmd2 'flag1' 'flag2'\" ... output_file"
